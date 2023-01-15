@@ -1,0 +1,38 @@
+"In Game Actions"
+{
+    "actions"
+    {
+        "GameControls"
+        {
+            "title"                 "#Set_GameControls"
+            "Button"
+            {
+                "Action_Jump"       "#Action_Jump"
+            }
+            "StickPadGyro"
+            {
+                "Action_Move"
+                {
+                    "title" 	    "#Action_Move"
+                    "input_mode"	"joystick_move"
+                }                
+                "Action_Camera"
+                {
+                    "title" 	    "#Action_Camera"
+                    "input_mode"	"absolute_mouse"
+                }                
+            }
+        }     
+    }
+    "localization"
+    {
+        "english"
+        {
+            "Title"                 "ThirdPersonShooter"
+            "Set_GameControls"      "In-Game Controls"
+            "Action_Move"           "Move"
+            "Action_Camera"         "Camera"
+            "Action_Jump"           "Jump"
+        }
+    }
+}
