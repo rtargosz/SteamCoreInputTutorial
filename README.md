@@ -1,12 +1,15 @@
 Introduction
+
 While there are many references available for Steamworks and even a couple of Unreal Engine plug-ins that provide Steamworks API wrappers for C++ and Blueprints, I have so far not found any walkthroughs or examples for how to get Steamworks Steam Input API working with Unreal Engine. I'm sure plenty of people have done it, and I'm sure many of them will read this and shake their heads at my implementation but having spent some time trying to figure this out on my own, I thought I'd try to save the next person some time and document how I got Steam Input fully working for my game.
 
 Background
+
 If you are shipping a game on Steam, the requirements for full controller support 'certification' can be difficult to attain without a lot of hard work. Steam Input is supposed to help simplify this, but the way it works with Unreal Engine can make life difficult. Unreal Engine has a few built-in input mechanisms, including the 'legacy' Input manager and the new Enhanced Input system. Steam Input works outside of these and doesn't provide a lot of the nice features UE provides like event-driven input signaling. Of course, Steamworks is a cross-platform and cross-engine system, so it should be no surprise that they provide APIs but no nice extensions to make them easier to use in any specific engine.
 
 For my game, I wanted to provide the best possible user experience for input, making sure that all input types are treated as first-class citizens. As a 2.5D platformer, I have no need for mouse input for the game itself, so I decided to do a complete implementation that was keyboard or gamepad only. Gameplay was relatively simple to implement since it only requires left/right movement, jump, crouch, shoot and interact inputs, along with options to pause/show in-game menu. Menu input was also relatively straightforward; the player only needs to navigate the menu using up/down and select/back inputs for the most part, then change settings using left/right. That being said, this tutorial can be used for nearly any kind of game that supports gamepad input, so there are no real limitations.
 
 Caveats
+
 I managed to crash Steam quite a few times during my testing. Simple things like running a local build by adding it as a non-Steam game then trying to launch the controller config crashed every time.
 The Steam API will not load if you use the PIE modes. You MUST use the Standalone Game option for testing.
 Control mappings for Xbox, Playstation and other controllers must be set up separately in Steam. Check out their instructions on the Steamworks pages above for details.
